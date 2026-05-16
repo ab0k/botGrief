@@ -15,7 +15,7 @@ if (!supabaseUrl || !supabaseKey) {
 }
 
 const supabase = createClient(supabaseUrl, supabaseKey, {
-  realtime: { transport: ws },
+  realtime: { transport: ws as any },
 });
 
 export default supabase;
