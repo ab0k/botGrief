@@ -1,0 +1,27 @@
+{
+  "name": "griefcc-bot",
+  "version": "1.0.0",
+  "description": "Bot Discord do grief.cc",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "node node_modules/tsx/dist/cli.mjs watch src/index.ts",
+    "build": "node node_modules/typescript/bin/tsc",
+    "start": "node dist/index.js",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop griefcc-bot",
+    "pm2:restart": "pm2 restart griefcc-bot",
+    "pm2:logs": "pm2 logs griefcc-bot"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
+    "ws": "^8.20.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.0"
+  }
+}
