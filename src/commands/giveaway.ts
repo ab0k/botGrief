@@ -93,7 +93,9 @@ async function criarGiveaway(message: Message, args: string[]): Promise<void> {
     )
     .setFooter({ text: `Use !giveaway participar ${gw.id} para entrar!` });
 
-  await message.channel.send({ embeds: [embed] });
+  if (message.channel.isSendable()) {
+    await message.channel.send({ embeds: [embed] });
+  }
 }
 
 async function participarGiveaway(message: Message, args: string[]): Promise<void> {
@@ -195,7 +197,9 @@ async function encerrarGiveaway(message: Message, args: string[]): Promise<void>
     .setTitle('🎉 Sorteio Encerrado!')
     .setDescription(`Prêmio: **${gw.prize}**\n\n🏆 Vencedor: <@${winner.discord_id}> (**${winner.discord_username}**)\n\nParabéns! Entre em contato com um admin para resgatar.`);
 
-  await message.channel.send({ embeds: [embed] });
+  if (message.channel.isSendable()) {
+    await message.channel.send({ embeds: [embed] });
+  }
 }
 
 async function listarGiveaways(message: Message): Promise<void> {

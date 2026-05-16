@@ -120,10 +120,12 @@ const command: Command = {
         await replyMsg.edit({ embeds: [embed] });
 
         if (!sentAsDM) return;
-        await message.channel.send({
-          content: `<@${message.author.id}>`,
-          embeds: [embed],
-        });
+        if (message.channel.isSendable()) {
+          await message.channel.send({
+            content: `<@${message.author.id}>`,
+            embeds: [embed],
+          });
+        }
       }
     }, POLL_INTERVAL_MS);
   },
